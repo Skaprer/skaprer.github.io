@@ -1,0 +1,11 @@
+{
+  "name": "Skaprer",
+  "version": "0.0.0",
+  "authors": [
+    "Yahya"
+  ],
+  "license": "None",
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.0.0"
+  }
+}

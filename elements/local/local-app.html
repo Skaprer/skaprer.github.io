@@ -1,0 +1,120 @@
+<link rel="import" href="/bower_components/polymer/polymer.html">
+
+<link rel="import" href="/elements/local/local-apps.html">
+<link rel="import" href="/elements/local/local-contact.html">
+
+<dom-module id="local-app">
+	<style>
+		:host
+		{
+			font-family: 'Roboto', sans-serif;
+			display: block;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			overflow-y: scroll;
+			/*background: linear-gradient(#42A5F5, #AB47BC);*/
+			background-color: #FFF;
+		}
+		#logo img
+		{
+			width: 300px;
+			margin: 50px auto 30px auto;
+			display: block;
+		}
+		#logo .brand
+		{
+			text-align: center;
+			font-size: 4em;
+			font-weight: 100;
+		}
+		#logo #subtitle
+		{
+			text-align: center;
+			font-size: 1.5em;
+			padding: 20px;
+			font-weight: 100;
+		}
+		#tabs a
+		{
+			display: block;
+			text-align: center;
+			color: #2196F3;
+			padding: 7px;
+			font-size: 1em;
+			font-weight: 400;
+			cursor: pointer;
+		}
+		#tabs
+		{
+			width: 720px;
+			margin: auto;
+		}
+	</style>
+	<template>
+		<div id="logo">
+			<img src="/img/raw.png"/>
+			<div class="brand">Skaprer</div>
+			<div id="subtitle">We develop apps</div>
+		</div>
+		<div id="container">
+			<div id="tabs">
+					<a id="contactLink">Contact Us</a>
+					<local-contact></local-contact>
+					<a id="appsLink">Our Apps</a>
+					<local-apps></local-apps>
+			</div>
+		</div>
+	</template>
+</dom-module>
+
+<script>
+
+	/* register component */
+	Polymer({
+		is : "local-app",
+		localToggle : function(id, el, flag)
+		{
+			$(id).click(function()
+			{
+				if ( flag )
+				{
+					$(el)[0].style.height = "300px";
+					$(el)[0].style.padding = "20px";
+					$(el)[0].style.opacity = "1";
+					$('local-app').animate({'scrollTop': $(el).offset().top + 100}, 800);
+				}
+				else
+				{
+					$(el)[0].style.padding = "0px";
+					$(el)[0].style.height = "0px";
+					$(el)[0].style.opacity = "0";
+				}
+				flag = !flag;
+			});
+		},
+		ready : function()
+		{
+			var lc = true;
+			var la = true;
+			this.localToggle('#contactLink','local-contact', lc);
+			this.localToggle('#appsLink', 'local-apps', la);
+
+			/* import roboto font */
+			WebFontConfig = {
+				google: { families: [ 'Roboto:400,100,300,500,700,900:latin' ] }
+			};
+			(function() {
+			var wf = document.createElement('script');
+			wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+			  '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+			wf.type = 'text/javascript';
+			wf.async = 'true';
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(wf, s);
+			})();
+		}
+	});
+</script>

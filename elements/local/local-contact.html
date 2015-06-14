@@ -1,0 +1,84 @@
+<link rel="import" href="/bower_components/polymer/polymer.html">
+
+<dom-module id="local-contact">
+	<style>
+		:host
+		{
+			display: block;
+			border-top: solid 1px #ccc;
+			border-bottom: solid 1px #ccc;
+			height: 0px;
+			margin: auto;
+			overflow: hidden;
+			opacity: 0;
+			transition: width 0.8s, height 0.8s, padding 0.8s, opacity 0.8s;
+		}
+		textarea
+		{
+			width: 600px;
+			margin: auto;
+			display: block;
+			height: 200px;
+			background-color: rgba(0,0,0,0.2);
+			border-radius: 5px;
+			border: none;
+			resize: none;
+			color: #222;
+			font-size: 18px;
+			font-weight: 100;
+			padding: 20px;
+			border-bottom: solid 50px rgba(0,0,0,0);
+			border-top: solid 10px rgba(0,0,0,0);
+		}
+		form
+		{
+			position: relative;
+		}
+		input[type="submit"]
+		{
+			position: absolute;
+			width: 100px;
+			height: 30px;
+			text-align: center;
+			bottom: 10px;
+			left: calc(50% - 50px);
+			border: none;
+			background: none;
+			color: #222;
+			font-size: 18px;
+			font-weight: 100;
+			cursor: pointer;
+		}
+		::-webkit-input-placeholder {
+		   color: #444;
+		}
+
+		:-moz-placeholder { /* Firefox 18- */
+		   color: #444;
+		}
+
+		::-moz-placeholder {  /* Firefox 19+ */
+		   color: #444;
+		}
+
+		:-ms-input-placeholder {
+		   color: #444;
+		}
+	</style>
+	<template>
+		<form>
+			<textarea placeholder="Enter you message here ( including your contact details so I can get back to you )"></textarea>
+			<input type="submit" />
+		</form>
+	</template>
+</dom-module>
+
+<script>
+
+	/* register component */
+	Polymer({
+		is : "local-contact"
+	});
+
+
+</script>
