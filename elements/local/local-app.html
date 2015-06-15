@@ -51,6 +51,50 @@
 		{
 			width: 720px;
 			margin: auto;
+			margin-bottom: 30px;
+		}
+
+		/* ip6 */
+		@media screen and (max-width: 750px)
+		{
+			#logo
+			{
+				height: 250px;
+				width: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				background-image: url('/img/bg.jpg');
+				background-size: cover;
+				background-repeat: no-repeat;
+				background-position: center;
+			}
+			#logo img
+			{
+				width: 150px; 
+				margin: 0 auto;
+				position: relative;
+				top: 175px;
+			}
+			#logo .brand
+			{
+				font-size: 2em;
+				position: relative;
+				top: 200px;
+			}
+			#logo #subtitle
+			{
+				font-size: 1em;
+				position: relative;
+				top: 200px;
+			}
+			#tabs
+			{
+				position: relative;
+				top: 440px;
+				width: 80%;
+			}
 		}
 	</style>
 	<template>
@@ -82,12 +126,17 @@
 				if ( flag )
 				{
 					$(el)[0].style.height = "300px";
-					$(el)[0].style.padding = "20px";
+					$(el)[0].style.marginTop = "50px";
+					$(el)[0].style.marginBottom = "50px";
+					$(el)[0].style.paddingTop = "50px";
+					$(el)[0].style.paddingBottom = "50px";
 					$(el)[0].style.opacity = "1";
-					$('local-app').animate({'scrollTop': $(el).offset().top + 100}, 800);
+					$('local-app').animate({'scrollTop': $(el).offset().top + 200}, 800);
 				}
 				else
 				{
+					$(el)[0].style.marginTop = "2px";
+					$(el)[0].style.marginBottom = "2px";
 					$(el)[0].style.padding = "0px";
 					$(el)[0].style.height = "0px";
 					$(el)[0].style.opacity = "0";

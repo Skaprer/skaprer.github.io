@@ -5,17 +5,47 @@
 		:host
 		{
 			display: block;
-			border-top: solid 1px #ccc;
-			border-bottom: solid 1px #ccc;
 			height: 0px;
-			margin: auto;
+			margin: 2px auto;
 			overflow: hidden;
 			opacity: 0;
-			transition: width 0.8s, height 0.8s, padding 0.8s, opacity 0.8s;
+			border: solid 1px #ccc;
+			transition: width 0.8s, height 0.8s, padding 0.8s, margin 0.8s, opacity 0.8s;
+		}
+		.jope-main img
+		{
+			display: block;
+			width : 200px;
+			margin: auto;
+		}
+		#desc
+		{
+			width: 500px;
+			margin: 0px auto;
+			text-align: center;
+			font-weight: 100;
+			font-size: 1em;
+		}
+		.jope-main h3
+		{
+			text-align: center;
+			font-weight: 100;
+			font-size: 1.5em;
+		}
+		@media screen and (max-width: 750px)
+		{
+			#desc
+			{
+				width: 70%;
+			}
 		}
 	</style>
 	<template>
-
+		<div class="jope-main">
+			<img src="/img/jope.png" />
+			<h3>Jope</h3>
+			<div id="desc">Coming Soon</div>
+		</div>
 	</template>
 </dom-module>
 
