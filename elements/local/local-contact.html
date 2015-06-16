@@ -1,8 +1,5 @@
 <link rel="import" href="/bower_components/polymer/polymer.html">
 
-<!-- import firebase -->
-<script src="/bower_components/firebase/firebase.js"></script>
-
 <dom-module id="local-contact">
 	<style>
 		:host
@@ -74,36 +71,16 @@
 		}
 	</style>
 	<template>
-		<form>
-			<textarea placeholder="Enter you message here ( Including your contact details so we can get back to you )"></textarea>
-			<input type="submit" on-tap="onContact" value="Send Message" />
+		<form method="get" action="/mail">
+			<textarea placeholder="Enter you message here ( Including your contact details so we can get back to you )" name="message"></textarea>
+			<input type="submit" value="Send Message" />
 		</form>
 	</template>
 </dom-module>
 
 <script>
-
 	/* register component */
 	Polymer({
 		is : "local-contact",
-		ready : function()
-		{
-			Fbs = new Firebase("https://skaprer.firebaseio.com/");
-			
-		},
-		onContact : function()
-		{
-			$('form').submit(function(e)
-			{
-				e.preventDefault();
-				Fbs.push({
-					message : $('textarea').val()
-				});
-				$('textarea').val('');
-				alert('Your message has been sent. Thank you for reaching out to us. We will respond as soon as we can.');
-			});
-		}
 	});
-
-
 </script>
